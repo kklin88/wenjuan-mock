@@ -2,7 +2,7 @@ const Koa = require("koa");
 const Router = require("koa-router");
 const mockList = require("./mock/index");
 
-const app = new Koa();
+const app = new Koa();         
 const router = new Router();
 // 註冊mock路由
 

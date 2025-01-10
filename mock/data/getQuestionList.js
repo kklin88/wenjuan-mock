@@ -13,10 +13,10 @@ function getQuestionList(opt = {}) {
       _id: Random.id(),
       title: Random.ctitle(),
       isPublished: Random.boolean(),
-      isStar,
+      isStar,//標星屬性
       answerCount: Random.natural(50, 100),
       createdAt: Random.datetime(),
-      isDeleted,
+      isDeleted,//假刪除
     });
   }
   return list;

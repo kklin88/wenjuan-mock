@@ -1,6 +1,6 @@
 const Mock = require("mockjs");
 const Random = Mock.Random;
-const getQuestionList = require("./data/getQuestion");
+const getQuestionList = require("./data/getQuestionList");
 module.exports = [
   {
     url: "/api/question/:id", // 獲取單個問卷信息
@@ -45,16 +45,44 @@ module.exports = [
       const isDeleted = url.indexOf("isDeleted=true") >= 0;
       console.log(isStar, isDeleted);
       console.log("ctx query", query);
-      const pageSize = parseInt(query.pageSize) ||10;
-    //   const page = parseInt(query.page);
+      const pageSize = parseInt(query.pageSize) || 10;
+      //   const page = parseInt(query.page);
 
       return {
         errno: 0,
         data: {
-          list: getQuestionList({len:pageSize, isStar, isDeleted }), //當前頁
+          list: getQuestionList({ len: pageSize, isStar, isDeleted }), //當前頁
           total: 100, //總數，用於分頁
         },
       };
     },
-  },
+  },{
+    //更新問卷
+    url:"/api/question/:id",
+    method:"patch",
+    response(){
+        return { errno:0 }
+    }
+  },{
+    // 複製問卷
+    url:'/api/question/duplicate/:id',
+    method:'post',
+    response(){
+        return {
+            errno:0,
+            data:{
+                id:Random.id()
+            }
+        }
+    }
+  },{
+    // 批量徹底刪除
+    url:'/api/question',
+    method:'delete',
+    response(){
+        return {
+            errno:0
+        }
+    }
+  }
 ];
