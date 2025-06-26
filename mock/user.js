@@ -13,6 +13,8 @@ module.exports = [
           username: Random.title(),
           nickname: Random.cname(),
         },
+        // errno:100,
+        // msg:'error cant  find user'
       };
     },
   },
