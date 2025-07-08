@@ -18,6 +18,8 @@ module.exports = [
               fe_id: Random.id(),
               type: "questionTitle", //組件類型，不能重複，前後端統一好   <a>
               title: "問卷標題",
+              isHidden: false,
+              isLocked: false,
               props: {
                 text: "個人信息調研",
                 level: 1,
@@ -29,6 +31,8 @@ module.exports = [
               fe_id: Random.id(),
               type: "questionInput",
               title: "輸入框1",
+              isHidden: false,
+              isLocked: false,
               props: {
                 title: "你的姓名",
                 placeholder: "請輸入姓名...",
@@ -39,6 +43,8 @@ module.exports = [
               fe_id: Random.id(),
               type: "questionInput",
               title: "輸入框2",
+              isHidden: false,
+              isLocked: false,
               props: {
                 title: "你的電話",
                 placeholder: "請輸入電話...",
